@@ -8,6 +8,10 @@
 // #E85A4F - secondary accent color
 
 //potential fonts:
+//font-family: 'Abel', sans-serif;
+//font-family: 'Ubuntu', sans-serif;
+
+
 // Open Sans Condensed & Dosis
 // Abel & Ubuntu
 // Poppins
@@ -19,20 +23,60 @@
 
 .home {
     background: #EAE7DC;
-    // height: 100%;
-    padding: 150px;
+    height: 100vh;
+    padding: 120px;
+}
+
+img {
+	max-width: 50%;
+	display: block;
 }
 
 .card {
     background: #D8C3A5;
-    margin: 0 200px;
-    padding: 100px 0;
-
+	width: 70%;
+	height: 70vh;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
 }
 
 h1 {
-    margin: 0 auto;
-    text-align: center;
+	margin: 0 auto;
+	padding-top: 20px;
+	text-align: center;
+	width: 100%;
+	font-family: 'Abel', sans-serif;
+	font-size: 55px;
+}
+
+.choices {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.choice1,
+.choice2,
+.choice3,
+.choice4 {
+	display: block;
+	width: 50%;
+}
+
+.choice input[type="radio"] {
+    opacity: 0;
+}
+
+.choice label {
+    content: "";
+    display: inline-block;
+    border: 1px solid;   
+}
+
+.choice input[type="radio"]:focus + label {
+    outline: rgb(59, 153, 252) auto 5px;
 }
 
 // button from code pen by Tobias Reich
@@ -41,7 +85,10 @@ h1 {
 	--offset: 10px;
 	--border-size: 2px;
 	
-    display: block;
+	display: block;
+	font-family: 'Abel', sans-serif;
+	font-size: 20px;
+	width: 30%;
     position: relative;
     padding: 1.5em 3em;
     margin: 50px 275px;

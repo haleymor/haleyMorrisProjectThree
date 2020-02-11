@@ -59,26 +59,26 @@ const quizQuestions = myApp.logos.map(function(currentQuestion, index) {
             <img src="${currentQuestion.logo}" alt="">
         </div>
         <div class="choices">
-            <div class="choice1">
-                <input type="radio" data-index="${index}" name="achoice" class="selectedAnswer" value="a">
-                <label for="a">${currentQuestion.choices.a}</label>
+            <div class="choice1 choice">
+                <input type="radio" data-index="${index}" name="selectedQuestion" id="aChoice" value="a">
+                <label for="aChoice">${currentQuestion.choices.a}</label>
             </div>
-            <div class="choice2">
-                <input type="radio" data-index="${index}" name="bchoice" class="selectedAnswer" value="b">
-                <label for="b">${currentQuestion.choices.b}</label>
+            <div class="choice2 choice">
+                <input type="radio" data-index="${index}" name="selectedQuestion" id="bChoice" value="b">
+                <label for="bChoice">${currentQuestion.choices.b}</label>
             </div>
-            <div class="choice3">
-                <input type="radio" data-index="${index}" name="cChoice" class="selectedAnswer" value="c">
-                <label for="$c">${currentQuestion.choices.c}</label>
+            <div class="choice3 choice">
+                <input type="radio" data-index="${index}" name="selectedQuestion" id="cChoice" value="c">
+                <label for="cChoice">${currentQuestion.choices.c}</label>
             </div>
-            <div class="choice4">
-                <input type="radio" data-index="${index}" name="dChoice" class="selectedAnswer" value="d">
-                <label for="d">${currentQuestion.choices.d}</label>
+            <div class="choice4 choice">
+                <input type="radio" data-index="${index}" name="selectedQuestion" id="dChoice" value="d">
+                <label for="dChoice">${currentQuestion.choices.d}</label>
             </div>
         </div>`;
     return question;
 });
-
+    
 let score = 0;
 
 myApp.init = function () {
@@ -91,7 +91,7 @@ myApp.init = function () {
     // then listen for change event on radio button
     $('.card').on('change', 'input', function() {
         // only one radio button can be selected at one time
-        $('.selectedAnswer').not(this).prop('checked', false);
+        $('.selectedQuestion').not(this).prop('checked', false);
         // store users choice as letter 
         const userChoice = $(this).val();
         // store current question index in order to update current question variable
@@ -99,16 +99,27 @@ myApp.init = function () {
         // starting score should be zero
         // let score = 0;
         //compare if userChoice is equal to correctAnswer
-        if (userChoice === myApp.logos[currentQuestionIndex].correctAnswer && currentQuestionIndex <= 3) {
-            //if correct add 1 to score and have next come up
-            score++;
-            $('.card').html(quizQuestions[currentQuestionIndex + 1]);
-            console.log(score);
-        } else if (userChoice !== myApp.logos[currentQuestionIndex].correctAnswer && currentQuestionIndex <= 3) {
-            // if inccorrect just have next question come up
-            $('.card').html(quizQuestions[currentQuestionIndex + 1]);
-        } else
-            $('.card').html(`<h2>Your score is ${score} / 5 </h2>`);
+        // if correct
+        if (userChoice === myApp.logos[currentQuestionIndex].correctAnswer) {
+            // if last question is correct score++ & show results
+            if (currentQuestionIndex === 4) {
+                score++;
+                $('.card').html(`<h2>Your score is ${score} / 5 </h2>`);
+                // if not last question is correct score++ and next question
+            } else {
+                score++;
+                $('.card').html(quizQuestions[currentQuestionIndex + 1]);
+            }
+        //if incorrect
+        } else {
+            // if last question is incorrect show results
+            if (currentQuestionIndex === 4) {
+                $('.card').html(`<h2>Your score is ${score} / 5 </h2>`);
+            // if not last question go to next question
+            } else {
+                $('.card').html(quizQuestions[currentQuestionIndex + 1]);
+            }
+        }
     });
 };
 
