@@ -22,8 +22,8 @@
 // https://codepen.io/electerious/pen/qPjbGm -- fancy button
 
 .home {
-    background: #EAE7DC;
-	padding: 120px;
+	background: #EAE7DC;
+	padding-top: 80px;
 	height: 100vh;
 }
 
@@ -32,16 +32,34 @@ img {
 	display: block;
 }
 
+@keyframes logoA {
+	0% {
+		transform: scale(0);
+	}
+
+	25% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
 .imgLogo {
 	width: 30%;
 	margin: 0 auto;
-
+	animation: logoA 3s;
 }
 
 .card {
     background: #D8C3A5;
 	width: 70%;
-	max-height: 70vh;
+	min-height: 80vh;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: column;
@@ -60,8 +78,10 @@ h1 {
 }
 
 h2 {
-	padding: 100px 0;
+	padding: 100px 0 50px;
 	font-family: 'Ubuntu', sans-serif;
+	text-transform: uppercase;
+	font-size: 30px;
 
 }
 
@@ -95,55 +115,14 @@ h2 {
 	font-family: 'Ubuntu', sans-serif;
 	background: #E98074;
 	text-transform: uppercase;
-
-	transform-style: flat;
-	transition: all 250ms ease-out;
-
-	&:before,
-  	&:after {
-    	content: "";
-    	position: absolute;
-    	z-index: -2;
-    	transition: all 250ms ease-out;
+	&:hover {
+		transform: scale(1.1);
+		transition: transform 0.3s ease-out;
+		background-position: -60px;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 	}
-
-	border: 1px solid transparent;
-	&:before,
-	&:after {
-		bottom: 15px;
-     width: 50%;
-     height: 20%;
-     max-width: 300px;
-     max-height: 100px;
-    
-     box-shadow: 0 15px 12px rgba(31, 31, 31, 0.7);
-	}
-  	&:before {
-    left: 10px;
-    transform: rotate(-3deg);
-	}
-  	&:after {
-    right: 10px;
-    transform: rotate(3deg);
-	}
-  
-  	&:hover {
-    border-color: #EAE7DC;
-    
-    &:before,
-    &:after {
-      	transition: box-shadow 600ms ease-out, left 200ms, right 200ms;
-	    box-shadow: 0 20px 20px rgba(31, 31, 31, 0.5);
-    }
-    &:before {
-    	left: 5px;
-    }
-    &:after {
-    	right: 5px;
-    }
-  }
 }
-	  
+
 .choice input[type="radio"]:focus + label {
     outline: #8E8D8A auto 5px;
 }

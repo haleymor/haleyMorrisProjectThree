@@ -1,60 +1,60 @@
 const myApp = {};
 myApp.logos = [
     {
-        logo: "assets/atari.png",
-        choices: {
-            a: "Mitsubishi",
-            b: "Atari",
-            c: "Oracle",
-            d: "Omega",
-        },
-        correctAnswer: "b",
-        altText: "Red logo with three lines forming a shape similar to an upside down tree trunk",
+    logo: "assets/atari.png",
+    choices: {
+        a: "Mitsubishi",
+        b: "Atari",
+        c: "Oracle",
+        d: "Omega"
+    },
+    correctAnswer: "b",
+    altText: "Red logo with three lines forming a shape similar to an upside down tree trunk"
     },
     {
-        logo: 'assets/linux.png',
-        choices: {
-            a: 'Linux',
-            b: 'Emperor',
-            c: 'Club Penguin',
-            d: 'Penguin Books',
-        },
-        correctAnswer: 'a',
-        altText: "Logo consisting of a cartoon penguin sitting up",
+    logo: "assets/linux.png",
+    choices: {
+        a: "Linux",
+        b: "Emperor",
+        c: "Club Penguin",
+        d: "Penguin Books"
+    },
+    correctAnswer: "a",
+    altText: "Logo consisting of a cartoon penguin sitting up"
     },
     {
-        logo: 'assets/lufthansa.png',
-        choices: {
-            a: 'Emporio Armani',
-            b: 'Pelikan',
-            c: 'Stablio',
-            d: 'Lufthansa',
-        },
-        correctAnswer: 'd',
-        altText: "Navy blue logo of a bird flying upwards within a circle",
+    logo: "assets/lufthansa.png",
+    choices: {
+        a: "Emporio Armani",
+        b: "Pelikan",
+        c: "Stablio",
+        d: "Lufthansa"
+    },
+    correctAnswer: "d",
+    altText: "Navy blue logo of a bird flying upwards within a circle"
     },
     {
-        logo: 'assets/rolex.png',
-        choices: {
-            a: 'Hallmark',
-            b: 'Pandora',
-            c: 'Crown Royale',
-            d: 'Rolex',
-        },
-        correctAnswer: 'd',
-        altText: "Logo consisting of a gold crown with five prongs wach with small circles on the top",
+    logo: "assets/rolex.png",
+    choices: {
+        a: "Hallmark",
+        b: "Pandora",
+        c: "Crown Royale",
+        d: "Rolex"
+    },
+    correctAnswer: "d",
+    altText: "Logo consisting of a gold crown with five prongs wach with small circles on the top"
     },
     {
-        logo: 'assets/toblerone.png',
-        choices: {
-            a: 'Paramount',
-            b: 'Toblerone',
-            c: 'Prudential',
-            d: 'Summit Entertainment',
-        },
-        correctAnswer: 'b',
-        altText: "Gold logo that is the peak of a mountain",
+    logo: "assets/toblerone.png",
+    choices: {
+        a: "Paramount",
+        b: "Toblerone",
+        c: "Prudential",
+        d: "Summit"
     },
+    correctAnswer: "b",
+    altText: "Gold logo that is the peak of a mountain"
+    }
 ];
 
 // creates a new array populated with the results of calling currentQuestion on every element in the calling array.
@@ -84,71 +84,71 @@ const quizQuestions = myApp.logos.map(function(currentQuestion, index) {
     return question;
 });
 
-
 let score = 0;
 
-myApp.init = function () {
+myApp.init = function() {
     // on page load have event listener that listens for click on button
-    $('.button').on('click', function(e) {
+    $(".button").on("click", function(e) {
         e.preventDefault();
-        // when click event is fired have html for logo 1 be added to the page
-        $('.card').html(quizQuestions[0]);
+    // when click event is fired have html for logo 1 be added to the page
+    $(".card").html(quizQuestions[0]);
     });
-    // then listen for change event on radio button
-    $('.card').on('change', 'input', function() {
-        // only one radio button can be selected at one time
-        $('.selectedQuestion').not(this).prop('checked', false);
-        // store users choice as letter 
-        const userChoice = $(this).val();
-        // store current question index in order to update current question variable
-        const currentQuestionIndex = $(this).data('index');
-        // starting score should be zero
-        // let score = 0;
-        //compare if userChoice is equal to correctAnswer
-        // if correct
-        if (userChoice === myApp.logos[currentQuestionIndex].correctAnswer) {
-            // if last question is correct score++ & show results
-            if (currentQuestionIndex === 4) {
-                score++;
-                $('.card').html(`
+  // then listen for change event on radio button
+    $(".card").on("change", "input", function() {
+    // only one radio button can be selected at one time
+    $(".selectedQuestion")
+        .not(this)
+        .prop("checked", false);
+    // store users choice as letter
+    const userChoice = $(this).val();
+    // store current question index in order to update current question variable
+    const currentQuestionIndex = $(this).data("index");
+    // starting score should be zero
+    // let score = 0;
+    //compare if userChoice is equal to correctAnswer
+    // if correct
+    if (userChoice === myApp.logos[currentQuestionIndex].correctAnswer) {
+      // if last question is correct score++ & show results
+        if (currentQuestionIndex === 4) {
+        score++;
+        $(".card").html(`
                     <h2>Your score is ${score} / 5 </h2>
                     <button class="button resultsButton">
                         Try Again
                         <div class="button__horizontal"></div>
                         <div class="button__vertical"></div>
                     </button>`);
-                // if not last question is correct score++ and next question
-            } else {
-                score++;
-                $('.card').html(quizQuestions[currentQuestionIndex + 1]);
-            }
-        //if incorrect
+        // if not last question is correct score++ and next question
         } else {
-            // if last question is incorrect show results
-            if (currentQuestionIndex === 4) {
-                $('.card').html(`
+        score++;
+        $(".card").html(quizQuestions[currentQuestionIndex + 1]);
+        }
+      //if incorrect
+    } else {
+      // if last question is incorrect show results
+        if (currentQuestionIndex === 4) {
+        $(".card").html(`
                     <h2>Your score is ${score} / 5 </h2>
                     <button class="button resultsButton">
                         Try Again
                         <div class="button__horizontal"></div>
                         <div class="button__vertical"></div>
                     </button>`);
-            // if not last question go to next question
-            } else {
-                $('.card').html(quizQuestions[currentQuestionIndex + 1]);
-            }
+        // if not last question go to next question
+        } else {
+        $(".card").html(quizQuestions[currentQuestionIndex + 1]);
         }
-    });
-    
-    // listen for click on try again button to restart entire game
-    $('.card').on('click', '.resultsButton', function (e) {
-        e.preventDefault();
-        $('.card').html(quizQuestions[0]);
+    }
     });
 
+  // listen for click on try again button to restart entire game
+    $(".card").on("click", ".resultsButton", function(e) {
+        e.preventDefault();
+        score = 0;
+        $(".card").html(quizQuestions[0]);
+    });
 };
 
-$(function () {
+$(function() {
     myApp.init();
 });
-

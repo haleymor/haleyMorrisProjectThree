@@ -237,7 +237,7 @@ html {
 
 .home {
   background: #EAE7DC;
-  padding: 120px;
+  padding-top: 80px;
   height: 100vh;
 }
 
@@ -246,15 +246,55 @@ img {
   display: block;
 }
 
+@-webkit-keyframes logoA {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  25% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes logoA {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  25% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 .imgLogo {
   width: 30%;
   margin: 0 auto;
+  -webkit-animation: logoA 3s;
+          animation: logoA 3s;
 }
 
 .card {
   background: #D8C3A5;
   width: 70%;
-  max-height: 70vh;
+  min-height: 80vh;
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -282,8 +322,10 @@ h1 {
 }
 
 h2 {
-  padding: 100px 0;
+  padding: 100px 0 50px;
   font-family: 'Ubuntu', sans-serif;
+  text-transform: uppercase;
+  font-size: 30px;
 }
 
 .choices {
@@ -319,62 +361,18 @@ h2 {
   font-family: 'Ubuntu', sans-serif;
   background: #E98074;
   text-transform: uppercase;
-  -webkit-transform-style: flat;
-          transform-style: flat;
-  -webkit-transition: all 250ms ease-out;
-  transition: all 250ms ease-out;
-  border: 1px solid transparent;
-}
-
-.choice label:before, .choice label:after {
-  content: "";
-  position: absolute;
-  z-index: -2;
-  -webkit-transition: all 250ms ease-out;
-  transition: all 250ms ease-out;
-}
-
-.choice label:before, .choice label:after {
-  bottom: 15px;
-  width: 50%;
-  height: 20%;
-  max-width: 300px;
-  max-height: 100px;
-  -webkit-box-shadow: 0 15px 12px rgba(31, 31, 31, 0.7);
-          box-shadow: 0 15px 12px rgba(31, 31, 31, 0.7);
-}
-
-.choice label:before {
-  left: 10px;
-  -webkit-transform: rotate(-3deg);
-          transform: rotate(-3deg);
-}
-
-.choice label:after {
-  right: 10px;
-  -webkit-transform: rotate(3deg);
-          transform: rotate(3deg);
 }
 
 .choice label:hover {
-  border-color: #EAE7DC;
-}
-
-.choice label:hover:before, .choice label:hover:after {
-  -webkit-transition: left 200ms, right 200ms, -webkit-box-shadow 600ms ease-out;
-  transition: left 200ms, right 200ms, -webkit-box-shadow 600ms ease-out;
-  transition: box-shadow 600ms ease-out, left 200ms, right 200ms;
-  transition: box-shadow 600ms ease-out, left 200ms, right 200ms, -webkit-box-shadow 600ms ease-out;
-  -webkit-box-shadow: 0 20px 20px rgba(31, 31, 31, 0.5);
-          box-shadow: 0 20px 20px rgba(31, 31, 31, 0.5);
-}
-
-.choice label:hover:before {
-  left: 5px;
-}
-
-.choice label:hover:after {
-  right: 5px;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  transition: -webkit-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  background-position: -60px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .choice input[type="radio"]:focus + label {
