@@ -42,7 +42,7 @@ myApp.logos = [
         d: "Rolex"
     },
     correctAnswer: "d",
-    altText: "Logo consisting of a gold crown with five prongs wach with small circles on the top"
+    altText: "Logo consisting of a gold crown with five prongs each with small circles on the top"
     },
     {
     logo: "assets/toblerone.png",
@@ -54,7 +54,40 @@ myApp.logos = [
     },
     correctAnswer: "b",
     altText: "Gold logo that is the peak of a mountain"
-    }
+    },
+    {
+    logo: "assets/bp.png",
+    choices: {
+        a: " ",
+        b: " ",
+        c: " ",
+        d: "BP"
+    },
+    correctAnswer: "d",
+    altText: " "
+    },
+    {
+    logo: "assets/ecko.png",
+    choices: {
+        a: "Ecko",
+        b: " ",
+        c: " ",
+        d: " "
+    },
+    correctAnswer: "A",
+    altText: " "
+    },
+    {
+    logo: "assets/unilever.png",
+    choices: {
+        a: " ",
+        b: " ",
+        c: "Unilever",
+        d: " "
+    },
+    correctAnswer: "c",
+    altText: " "
+    },
 ];
 
 // creates a new array populated with the results of calling currentQuestion on every element in the calling array.
@@ -88,8 +121,7 @@ let score = 0;
 
 myApp.init = function() {
     // on page load have event listener that listens for click on button
-    $(".button").on("click", function(e) {
-        e.preventDefault();
+    $(".button").on("click", function() {
     // when click event is fired have html for logo 1 be added to the page
     $(".card").html(quizQuestions[0]);
     });
@@ -109,10 +141,10 @@ myApp.init = function() {
     // if correct
     if (userChoice === myApp.logos[currentQuestionIndex].correctAnswer) {
       // if last question is correct score++ & show results
-        if (currentQuestionIndex === 4) {
+        if (currentQuestionIndex === 7) {
         score++;
         $(".card").html(`
-                    <h2>Your score is ${score} / 5 </h2>
+                    <h2>Your score is ${score} / 8 </h2>
                     <button class="button resultsButton">
                         Try Again
                         <div class="button__horizontal"></div>
@@ -126,9 +158,9 @@ myApp.init = function() {
       //if incorrect
     } else {
       // if last question is incorrect show results
-        if (currentQuestionIndex === 4) {
+        if (currentQuestionIndex === 7) {
         $(".card").html(`
-                    <h2>Your score is ${score} / 5 </h2>
+                    <h2>Your score is ${score} / 8 </h2>
                     <button class="button resultsButton">
                         Try Again
                         <div class="button__horizontal"></div>
@@ -142,10 +174,8 @@ myApp.init = function() {
     });
 
   // listen for click on try again button to restart entire game
-    $(".card").on("click", ".resultsButton", function(e) {
-        e.preventDefault();
-        score = 0;
-        $(".card").html(quizQuestions[0]);
+    $(".card").on("click", ".resultsButton", function() {
+        location.reload();
     });
 };
 
