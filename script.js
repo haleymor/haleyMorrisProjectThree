@@ -8,7 +8,8 @@ myApp.logos = [
             c: "Oracle",
             d: "Omega",
         },
-        correctAnswer: "b"
+        correctAnswer: "b",
+        altText: "Red logo with three lines forming a shape similar to an upside down tree trunk",
     },
     {
         logo: 'assets/linux.png',
@@ -18,7 +19,8 @@ myApp.logos = [
             c: 'Club Penguin',
             d: 'Penguin Books',
         },
-        correctAnswer: 'a'
+        correctAnswer: 'a',
+        altText: "Logo consisting of a cartoon penguin sitting up",
     },
     {
         logo: 'assets/lufthansa.png',
@@ -28,7 +30,8 @@ myApp.logos = [
             c: 'Stablio',
             d: 'Lufthansa',
         },
-        correctAnswer: 'd'
+        correctAnswer: 'd',
+        altText: "Navy blue logo of a bird flying upwards within a circle",
     },
     {
         logo: 'assets/rolex.png',
@@ -39,6 +42,7 @@ myApp.logos = [
             d: 'Rolex',
         },
         correctAnswer: 'd',
+        altText: "Logo consisting of a gold crown with five prongs wach with small circles on the top",
     },
     {
         logo: 'assets/toblerone.png',
@@ -48,7 +52,8 @@ myApp.logos = [
             c: 'Prudential',
             d: 'Summit Entertainment',
         },
-        correctAnswer: 'b'
+        correctAnswer: 'b',
+        altText: "Gold logo that is the peak of a mountain",
     },
 ];
 
@@ -56,7 +61,7 @@ myApp.logos = [
 const quizQuestions = myApp.logos.map(function(currentQuestion, index) {
     const question = `
         <div class="imgLogo">
-            <img src="${currentQuestion.logo}" alt="">
+            <img src="${currentQuestion.logo}" alt="${currentQuestion.altText}">
         </div>
         <div class="choices">
             <div class="choice1 choice">
@@ -78,7 +83,8 @@ const quizQuestions = myApp.logos.map(function(currentQuestion, index) {
         </div>`;
     return question;
 });
-    
+
+
 let score = 0;
 
 myApp.init = function () {
@@ -104,7 +110,13 @@ myApp.init = function () {
             // if last question is correct score++ & show results
             if (currentQuestionIndex === 4) {
                 score++;
-                $('.card').html(`<h2>Your score is ${score} / 5 </h2>`);
+                $('.card').html(`
+                    <h2>Your score is ${score} / 5 </h2>
+                    <button class="button resultsButton">
+                        Try Again
+                        <div class="button__horizontal"></div>
+                        <div class="button__vertical"></div>
+                    </button>`);
                 // if not last question is correct score++ and next question
             } else {
                 score++;
@@ -114,21 +126,29 @@ myApp.init = function () {
         } else {
             // if last question is incorrect show results
             if (currentQuestionIndex === 4) {
-                $('.card').html(`<h2>Your score is ${score} / 5 </h2>`);
+                $('.card').html(`
+                    <h2>Your score is ${score} / 5 </h2>
+                    <button class="button resultsButton">
+                        Try Again
+                        <div class="button__horizontal"></div>
+                        <div class="button__vertical"></div>
+                    </button>`);
             // if not last question go to next question
             } else {
                 $('.card').html(quizQuestions[currentQuestionIndex + 1]);
             }
         }
     });
+    
+    // listen for click on try again button to restart entire game
+    $('.card').on('click', '.resultsButton', function (e) {
+        e.preventDefault();
+        $('.card').html(quizQuestions[0]);
+    });
+
 };
 
 $(function () {
     myApp.init();
 });
-//     update current question variable
-        // implement an attribute on each radio button called dataQuestion, for first question this would be zero
-        //then have correct answer be compared against userChoice directly 
 
-// repeat above for next change event until go through all logos, if current question variable = 5 then display results by appending html
-// listen for click on try again button to restart entire game(maybe stretch)
