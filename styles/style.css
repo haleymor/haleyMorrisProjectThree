@@ -279,8 +279,6 @@ img {
 .imgLogo {
   width: 30%;
   margin: 0 auto;
-  -webkit-animation: logoA 2s;
-          animation: logoA 2s;
 }
 
 .card {
