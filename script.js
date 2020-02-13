@@ -61,7 +61,7 @@ myApp.logos = [
         a: "Starbucks",
         b: "Sunlife Financial",
         c: "Burger King",
-        d: "British Petroleum Company"
+        d: "British Petroleum"
     },
     correctAnswer: "d",
     altText: " "
@@ -70,7 +70,7 @@ myApp.logos = [
     logo: "assets/ecko.png",
     choices: {
         a: "Ecko",
-        b: "World Wildlife Fund",
+        b: "WWF",
         c: "Obey",
         d: "Diesel"
     },

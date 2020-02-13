@@ -235,25 +235,33 @@ html {
   overflow: hidden;
 }
 
-.home {
+html {
+  font-size: 62.5%;
+}
+
+body {
   background: #EAE7DC;
-  padding-top: 100px;
-  height: 100vh;
+}
+
+.home {
+  padding-top: 80px;
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 img {
   width: 100%;
   display: block;
+  margin: 0 auto;
 }
 
 @-webkit-keyframes logoA {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
-  }
-  50% {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
   }
   100% {
     -webkit-transform: scale(1);
@@ -266,10 +274,6 @@ img {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  50% {
-    -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-  }
   100% {
     -webkit-transform: scale(1);
             transform: scale(1);
@@ -279,11 +283,12 @@ img {
 .imgLogo {
   width: 30%;
   margin: 0 auto;
+  -webkit-animation: logoA 2s;
+          animation: logoA 2s;
 }
 
 .card {
   background: #D8C3A5;
-  width: 70%;
   min-height: 80vh;
   margin: 0 auto;
   display: -webkit-box;
@@ -324,13 +329,9 @@ h2 {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  width: 50%;
 }
 
-.choice1,
-.choice2,
-.choice3,
-.choice4 {
+.choice {
   width: 50%;
   padding-bottom: 20px;
 }
@@ -349,6 +350,7 @@ h2 {
   margin: 0 15px;
   text-align: center;
   font-family: 'Ubuntu', sans-serif;
+  font-size: 20px;
   background: #E98074;
   text-transform: uppercase;
 }
@@ -454,4 +456,59 @@ h2 {
 .button:hover .button__vertical {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
+}
+
+footer {
+  background: #EAE7DC;
+}
+
+footer p {
+  font-size: 16px;
+  font-family: 'Abel', sans-serif;
+  padding: 5px 0;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .choice label {
+    font-size: 16px;
+  }
+  .button {
+    padding: 1.5em 2.4em;
+  }
+}
+
+@media (max-width: 500px) {
+  .imgLogo {
+    width: 50%;
+  }
+  .button {
+    padding: 1.5em 2em;
+  }
+  .choices {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .choice {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .button {
+    padding: 1.5em 1.8em;
+  }
+}
+
+@media (max-width: 400px) {
+  .button {
+    padding: 1.5em 1.4em;
+  }
+}
+
+@media (max-width: 350px) {
+  .button {
+    padding: 1.5em 0.8em;
+  }
 }
