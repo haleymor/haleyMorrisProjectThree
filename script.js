@@ -64,7 +64,7 @@ myApp.logos = [
         d: "British Petroleum"
     },
     correctAnswer: "d",
-    altText: " "
+    altText: "Flower shaped logo with white center, yellow inner petals, light green middle petals and dark green outer petals"
     },
     {
     logo: "assets/ecko.png",
@@ -75,7 +75,7 @@ myApp.logos = [
         d: "Diesel"
     },
     correctAnswer: "a",
-    altText: " "
+    altText: "Red logo consisting of a rhino surronded by a horizontal oval broken up into four equal sections"
     },
     {
     logo: "assets/unilever.png",
@@ -86,7 +86,7 @@ myApp.logos = [
         d: "Universal Studios"
     },
     correctAnswer: "c",
-    altText: " "
+    altText: "Blue logo in U shape. The U is filled with small images of plants, animals and shapes"
     },
 ];
 
