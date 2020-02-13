@@ -237,12 +237,12 @@ html {
 
 .home {
   background: #EAE7DC;
-  padding-top: 80px;
+  padding-top: 100px;
   height: 100vh;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
   display: block;
 }
 
@@ -250,10 +250,6 @@ img {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
-  }
-  25% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
   }
   50% {
     -webkit-transform: scale(1.5);
@@ -270,10 +266,6 @@ img {
     -webkit-transform: scale(0);
             transform: scale(0);
   }
-  25% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
   50% {
     -webkit-transform: scale(1.5);
             transform: scale(1.5);
@@ -287,8 +279,8 @@ img {
 .imgLogo {
   width: 30%;
   margin: 0 auto;
-  -webkit-animation: logoA 3s;
-          animation: logoA 3s;
+  -webkit-animation: logoA 2s;
+          animation: logoA 2s;
 }
 
 .card {

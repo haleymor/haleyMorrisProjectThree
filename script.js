@@ -58,10 +58,10 @@ myApp.logos = [
     {
     logo: "assets/bp.png",
     choices: {
-        a: " ",
-        b: " ",
-        c: " ",
-        d: "BP"
+        a: "Starbucks",
+        b: "Sunlife Financial",
+        c: "Burger King",
+        d: "British Petroleum Company"
     },
     correctAnswer: "d",
     altText: " "
@@ -70,20 +70,20 @@ myApp.logos = [
     logo: "assets/ecko.png",
     choices: {
         a: "Ecko",
-        b: " ",
-        c: " ",
-        d: " "
+        b: "World Wildlife Fund",
+        c: "Obey",
+        d: "Diesel"
     },
-    correctAnswer: "A",
+    correctAnswer: "a",
     altText: " "
     },
     {
     logo: "assets/unilever.png",
     choices: {
-        a: " ",
-        b: " ",
+        a: "Unitech",
+        b: "Unicef",
         c: "Unilever",
-        d: " "
+        d: "Universal Studios"
     },
     correctAnswer: "c",
     altText: " "
