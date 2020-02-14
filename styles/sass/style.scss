@@ -1,25 +1,5 @@
+// Partials
 @import 'setup';
-
-// potential colors:
-// #EAE7DC - base color
-// #D8C3A5 - primary color
-// #8E8D8A - secondary color
-// #E98074 - accent color
-// #E85A4F - secondary accent color
-
-//potential fonts:
-//font-family: 'Abel', sans-serif;
-//font-family: 'Ubuntu', sans-serif;
-
-
-// Open Sans Condensed & Dosis
-// Abel & Ubuntu
-// Poppins
-// Karla & Lato
-// Oswald & Droid Sans
-// line-height - good default is 1.6
-// icons can be found at thenounproject.com
-// https://codepen.io/electerious/pen/qPjbGm -- fancy button
 
 html {
     font-size: 62.5%;
@@ -27,6 +7,12 @@ html {
 
 body {
 	background: #EAE7DC;
+}
+
+img {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
 }
 
 .home {
@@ -38,11 +24,6 @@ body {
     margin: 0 auto;
 }
 
-img {
-	width: 100%;
-	display: block;
-	margin: 0 auto;
-}
 
 @keyframes logoA {
 	0% {
@@ -68,17 +49,17 @@ img {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
+	h1 {
+		margin: 0 auto;
+		padding-top: 100px;
+		padding-bottom: 100px;
+		text-align: center;
+		width: 100%;
+		font-family: 'Abel', sans-serif;
+		font-size: 55px;
+	}
 }
 
-h1 {
-	margin: 0 auto;
-	padding-top: 100px;
-	padding-bottom: 100px;
-	text-align: center;
-	width: 100%;
-	font-family: 'Abel', sans-serif;
-	font-size: 55px;
-}
 
 h2 {
 	padding: 100px 0 50px;
@@ -91,41 +72,31 @@ h2 {
 .choices {
 	display: flex;
 	flex-wrap: wrap;
-}
-
-.choice {
-	width: 50%;
-	padding-bottom: 20px;
-}
-
-.choice input[type="radio"] {
-    opacity: 0;
-}
-
-.choice label {
-	content: "";
-	position: relative;
-	display: block;
-	position: relative;
-	border: 1px solid #E85A4F;
-	padding: 10px 5px;
-	margin: 0 15px;
-	text-align: center;
-	font-family: 'Ubuntu', sans-serif;
-	font-size: 20px;
-	background: #E98074;
-	text-transform: uppercase;
-	&:hover {
-		transform: scale(1.1);
-		transition: transform 0.3s ease-out;
-		background-position: -60px;
-		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	.choice {
+		width: 50%;
+		padding-bottom: 20px;
+	}
+	input[type="radio"] {
+		opacity: 0;
+	}
+	input[type="radio"]:focus + label {
+		outline: #8E8D8A auto 5px;
+	}
+	label {
+		content: "";
+		position: relative;
+		display: block;
+		border: 1px solid #E85A4F;
+		padding: 10px 5px;
+		margin: 0 15px;
+		text-align: center;
+		font-family: 'Ubuntu', sans-serif;
+		font-size: 20px;
+		background: #E98074;
+		text-transform: uppercase;
 	}
 }
 
-.choice input[type="radio"]:focus + label {
-    outline: #8E8D8A auto 5px;
-}
 
 // button from code pen by Tobias Reich
 .button {
@@ -220,6 +191,17 @@ footer {
 	}
 }
 
+// Media Queries
+// only have hover states when screen is 500px and larger
+@media(min-width: 500px) {
+	label:hover {
+		transform: scale(1.1);
+		transition: transform 0.3s ease-out;
+		background-position: -60px;
+		box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	}
+}
+
 @media(max-width: 650px) {
 	.choice label {
 		font-size: 16px;
@@ -241,10 +223,9 @@ footer {
 
 	.choices {
 		justify-content: center;
-	}
-
-	.choice {
-		width: 80%;
+		.choice {
+			width: 80%;
+		}
 	}
 }
 

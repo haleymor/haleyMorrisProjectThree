@@ -243,18 +243,18 @@ body {
   background: #EAE7DC;
 }
 
+img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
 .home {
   padding-top: 80px;
 }
 
 .wrapper {
   max-width: 1000px;
-  margin: 0 auto;
-}
-
-img {
-  width: 100%;
-  display: block;
   margin: 0 auto;
 }
 
@@ -306,7 +306,7 @@ img {
           justify-content: space-evenly;
 }
 
-h1 {
+.card h1 {
   margin: 0 auto;
   padding-top: 100px;
   padding-bottom: 100px;
@@ -331,20 +331,23 @@ h2 {
       flex-wrap: wrap;
 }
 
-.choice {
+.choices .choice {
   width: 50%;
   padding-bottom: 20px;
 }
 
-.choice input[type="radio"] {
+.choices input[type="radio"] {
   opacity: 0;
 }
 
-.choice label {
+.choices input[type="radio"]:focus + label {
+  outline: #8E8D8A auto 5px;
+}
+
+.choices label {
   content: "";
   position: relative;
   display: block;
-  position: relative;
   border: 1px solid #E85A4F;
   padding: 10px 5px;
   margin: 0 15px;
@@ -353,22 +356,6 @@ h2 {
   font-size: 20px;
   background: #E98074;
   text-transform: uppercase;
-}
-
-.choice label:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  transition: -webkit-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-  transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-  background-position: -60px;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.choice input[type="radio"]:focus + label {
-  outline: #8E8D8A auto 5px;
 }
 
 .button {
@@ -470,6 +457,20 @@ footer p {
   text-align: center;
 }
 
+@media (min-width: 500px) {
+  label:hover {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    transition: -webkit-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+    background-position: -60px;
+    -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
 @media (max-width: 650px) {
   .choice label {
     font-size: 16px;
@@ -491,7 +492,7 @@ footer p {
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .choice {
+  .choices .choice {
     width: 80%;
   }
 }
